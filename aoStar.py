@@ -21,6 +21,7 @@ class Graph:
             cost = 0
             nodeList = []
             for c, weight in node:
+                print(f"Processing {c}")
                 cost += self.getHeuristicNode(c) + weight
                 nodeList.append(c)
             if flag or cost < minCost:
@@ -31,7 +32,10 @@ class Graph:
 
     def aoStar(self, v):
         minCost, childNodeList = self.computeMinCost(v)
+        print(f"Node: {v}  Min Cost: {minCost}  Child Nodes: {childNodeList}")
         self.solution[v] = childNodeList
+        print(f"Solution: {self.solution}")
+        print("-" * 50) # for better visualization, you can skip this line
         for childNode in childNodeList:
             self.aoStar(childNode)
 
