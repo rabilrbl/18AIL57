@@ -32,4 +32,6 @@ def n_queens(row):
 
 
 n_queens(0)
-print(Board)
+
+for row in Board:
+    print(row)
